@@ -3,8 +3,14 @@
     <h2 class="post-title">{{ .Title }}</h2>
   </a>
   <div class="post-entry">
+    {{ with .Param "description" }}
+        <p>{{ . }}</p>
+    {{ else }}
+        {{ if .Summary }}
+            <p>{{ .Summary | plainify }}</p>
+        {{ end }}
+    {{ end }}
     {{ if .Truncated }}
-      <p>{{ .Summary | plainify }}</p>
       <a href="{{ .Permalink }}" class="post-read-more"
         >{{ i18n "read-more" }}</a
       >
