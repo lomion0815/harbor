@@ -10,10 +10,7 @@
     {{ $base := .Site.BaseURL }}
     {{ range $social :=  .Site.Params.social_static }}
     <a class="social-icon" href="{{ $social.url }}" name="{{ $social.name }}">
-    <img src="{{ $base }}images/{{ $social.icon }}"
-        width="20"
-        height="20"
-        alt="{{ $social.name }}">
+        <object type="image/svg+xml" data="{{ $base }}images/{{ $social.icon }}" width="20" height="20" style="pointer-events: none;"></object>
     </a>
     {{end}}
 </div>
